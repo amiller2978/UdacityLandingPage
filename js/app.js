@@ -13,10 +13,12 @@
  * 
 */
 
+//Variables to hold the view height and width
 let viewWidth = document.documentElement.clientWidth;
 let viewHeight = document.documentElement.clientHeight;
 
 
+//helper function to test if the element is in the view
 var isInView = function (elem) {
     var bounding = elem.getBoundingClientRect();
     return (
@@ -28,7 +30,7 @@ var isInView = function (elem) {
 };
 
 
-
+//variables to facilitate accessing the navbar and section elements
 let navBarMenu = document.querySelector('.navbar__menu');
 let count = 0;
 
@@ -39,7 +41,7 @@ const sectionList = document.querySelectorAll('section');
 let sectionListArray = Array.from(sectionList);
 
 
-
+//construct the navbar based on the # of sections
 for (const sectionNum of sectionListArray) {
         const newNavDIV = document.createElement('A'); 
         navBarMenu.appendChild(newNavDIV);
@@ -48,25 +50,18 @@ for (const sectionNum of sectionListArray) {
   };
 
 
+
 let scrollPosition = 0;
 
-
-function outputScrollPosition(scrollPosition){
-  
-}
-
-
-let testDiv = sectionListArray[0];
-
+//event listener that will set the active class based on what is in view
 window.addEventListener('scroll', function(e) {
     scrollPosition = window.scrollY;
    
     for (const sectionNum of sectionListArray) {
         if (isInView(sectionNum)) {
-            console.log(sectionNum.id);
             document.getElementById(sectionNum.id).className="your-active-class";
             let navSection = document.querySelectorAll("[href='#"+ sectionNum.id + "']");
-            navSection.item(0).style.backgroundColor="blue";
+            navSection.item(0).style.backgroundColor="lightblue";
          
         } else {
             document.getElementById(sectionNum.id).className=null;

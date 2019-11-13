@@ -154,11 +154,14 @@ window.addEventListener('scroll', function(e) {
             console.log(sectionNum.id);
             //use sectionNum to find element with that ID and 
             document.getElementById(sectionNum.id).className="your-active-class";
-            // let navSection = document.querySelectorAll("[href='#section2']");
-            // navSection.style.backgroundColor="red";
+            let navSection = document.querySelectorAll("[href='#"+ sectionNum.id + "']");
+            navSection.item(0).style.backgroundColor="blue";
             console.log('in view');
         } else {
             document.getElementById(sectionNum.id).className=null;
+            let navSection = document.querySelectorAll("[href='#"+ sectionNum.id + "']");
+            navSection.item(0).style.backgroundColor="white";
+
         }
       }
     
